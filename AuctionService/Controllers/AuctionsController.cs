@@ -75,7 +75,7 @@ public class AuctionsController : ControllerBase
 
     [Authorize]
     [HttpPut("{id}")]
-    public async Task<ActionResult> UpdateAuction(Guid id, UpdateAuctionDto updateAuctionDto)
+    public async Task<IActionResult> UpdateAuction(Guid id, UpdateAuctionDto updateAuctionDto)
     {
         var auction = await _context.Auctions.Include(x => x.Item)
             .FirstOrDefaultAsync(x => x.Id == id);
@@ -83,7 +83,7 @@ public class AuctionsController : ControllerBase
 
         if (auction == null) return NotFound();
 
-        if (auction.Seller != User.Identity.Name) return Forbid("");
+        if (auction.Seller != User.Identity.Name) return Forbid();
 
         auction.Item.Make = updateAuctionDto.Make ?? auction.Item.Make;
         auction.Item.Model = updateAuctionDto.Model ?? auction.Item.Model;
@@ -102,7 +102,7 @@ public class AuctionsController : ControllerBase
 
     [Authorize]
     [HttpDelete("{id}")]
-    public async Task<ActionResult> DeleteAuction (Guid id)
+    public async Task<IActionResult> DeleteAuction (Guid id)
     {
         var auction = await _context.Auctions.FindAsync(id);
 
