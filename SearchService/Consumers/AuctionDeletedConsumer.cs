@@ -6,9 +6,9 @@ using SearchService.Models;
 
 namespace SearchService.Consumers;
 
-public class AuctionDeletedConsumer
+public class AuctionDeletedConsumer: IConsumer<AuctionDeleted>
 {
-    public async Task Consume(ConsumeContext<AuctionCreated> context)
+    public async Task Consume(ConsumeContext<AuctionDeleted> context)
     {
         Console.WriteLine("--> Consuming AuctionDeleted: " + context.Message.Id);
 

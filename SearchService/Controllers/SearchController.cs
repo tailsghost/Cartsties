@@ -16,7 +16,7 @@ public class SearchController : ControllerBase
 
         if (!string.IsNullOrEmpty(search.SearchTerm))
         {
-            query.Match(Search.Full, search.SearchTerm).SortByTextScore();
+         var lol =  query.Match(Search.Full, search.SearchTerm).SortByTextScore();
         }
 
         query = search.OrderBy switch

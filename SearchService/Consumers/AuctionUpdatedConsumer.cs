@@ -6,7 +6,7 @@ using SearchService.Models;
 
 namespace SearchService.Consumers;
 
-public class AuctionUpdatedConsumer
+public class AuctionUpdatedConsumer: IConsumer<AuctionUpdated>
 {
     private readonly IMapper _mapper;
 
@@ -18,7 +18,17 @@ public class AuctionUpdatedConsumer
     {
         Console.WriteLine("--> Consuming auction updated: " + context.Message.Id);
 
-        var item = _mapper.Map<Item>(context.Message);
+        var item = new Item
+        {
+            Model = context.Message.Model,
+            Color = context.Message.Color,
+            ID = context.Message.Id,
+            Mileage = context.Message.Mileage,
+            Make = context.Message.Make,
+            Year = context.Message.Year,
+        };
+
+        var auction = await DB.Find<Item>().OneAsync(context.Message.Id);
 
         var result = await DB.Update<Item>()
             .Match(a => a.ID == context.Message.Id)

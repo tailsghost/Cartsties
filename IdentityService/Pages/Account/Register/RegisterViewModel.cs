@@ -11,7 +11,7 @@ public class RegisterViewModel
     public string Password { get; set; }
 
     [Required]
-    public string UserName { get; set; }
+    public string Username { get; set; }
 
     [Required]
     public string FullName { get; set; }
