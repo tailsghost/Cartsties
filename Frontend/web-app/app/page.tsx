@@ -1,11 +1,9 @@
-import Image from "next/image";
+import Listings from "./auctions/Listings";
 
 export default function Home() {
   return (
     <div>
-      <h3 className="text-3xl font-semibold">
-        Carsties-App
-      </h3>
+      <Listings/>
     </div>
   );
 }
