@@ -18,6 +18,8 @@ export default function AppPagination({currentPage, pageCount, pageChange}: Prop
         layout="pagination"
         showIcons
         className="text-blue-500 mb-5 justify-center"
+        previousLabel="Назад"
+        nextLabel="Вперед"
         />
   )
 }
