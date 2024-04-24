@@ -56,7 +56,7 @@ export default function Filters() {
   return (
     <div className="flex justify-between items-center mb-4">
       <div>
-        <span className="uppercase text-sm text-gray-500 mr-2 font-medium bottom-1">
+        <span className="uppercase text-sm text-gray-500 mr-2 font-medium">
           Поиск по
         </span>
         <Button.Group>
@@ -65,9 +65,9 @@ export default function Filters() {
               key={value}
               onClick={() => setParams({ filterBy: value })}
               color={`${filterBy === value ? "red" : "gray"}`}
-              className="items-center h-10"
+              className="focus:ring-0 items-center h-10 mr-1 rounded-lg p-2"
             >
-              <Icon className="mr-3 h-5 w-5 " />
+              <Icon className="mr-3 h-5 w-6 mb-1" />
               {label}
             </Button>
           ))}
@@ -84,9 +84,9 @@ export default function Filters() {
               key={value}
               onClick={() => setParams({ orderBy: value })}
               color={`${orderBy === value ? "red" : "gray"}`}
-              className="items-center h-10"
+              className="items-center h-10 mr-1 rounded-lg p-2"
             >
-              <Icon className="mr-3 h-5 w-5 " />
+              <Icon className="mr-3 h-5 w-6 mb-1" />
               {label}
             </Button>
           ))}
@@ -103,7 +103,7 @@ export default function Filters() {
               key={i}
               onClick={() => setParams({ pageSize: value })}
               color={`${pageSize === value ? "red" : "gray"}`}
-              className="focus:ring-0"
+              className="focus:ring-0 w-7 shadow-lg rounded-lg mr-1"
             >
               {value}
             </Button>

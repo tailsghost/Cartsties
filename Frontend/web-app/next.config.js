@@ -7,8 +7,11 @@ const nextConfig = {
 images: {
   domains: [
     "wroom.ru"
-  ]
-}
+  ],
+},
+env: {
+  NEXTAUTH_SECRET:"say_lalisa_love_me_lalisa_love_me_hey",
+},
 }
 
 module.exports = nextConfig;

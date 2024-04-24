@@ -9,45 +9,45 @@
         <div class="col-6 offset-3">
             <div class="card">
                 <div class="card-header">
-                    <h2>Register</h2>
+                    <h2>Регистрация</h2>
                 </div>
                 <div class="card-body">
                     <form asp-page="/Account/Register/Index">
                             <input type="hidden" asp-for="Input.ReturnUrl" />
 
                             <div class="form-group">
-                                <label asp-for="Input.Username"></label>
-                            <input class="form-control" placeholder="Username" asp-for="Input.Username" autofocus>
+                                <label asp-for="Input.Username">Имя пользователя</label>
+                            <input class="form-control" placeholder="Имя пользователя" asp-for="Input.Username" autofocus>
                             </div>
 
                             <div class="form-group">
-                                <label asp-for="Input.Email"></label>
-                                <input class="form-control" placeholder="Email" asp-for="Input.Email">
+                                <label asp-for="Input.Email">Почта</label>
+                                <input class="form-control" placeholder="Почта" asp-for="Input.Email">
                             </div>
 
                             <div class="form-group">
-                                <label asp-for="Input.FullName"></label>
-                                <input class="form-control" placeholder="Full name" asp-for="Input.FullName">
+                                <label asp-for="Input.FullName">ФИО</label>
+                                <input class="form-control" placeholder="ФИО" asp-for="Input.FullName">
                             </div>
 
                             <div class="form-group">
-                                <label asp-for="Input.Password"></label>
-                                <input type="password" class="form-control" placeholder="Password" asp-for="Input.Password" autocomplete="off">
+                                <label asp-for="Input.Password">Пароль</label>
+                                <input type="password" class="form-control" placeholder="Пароль" asp-for="Input.Password" autocomplete="off">
                             </div>
 
                             <a class="pb-2 d-block" asp-page="../Login/Index" asp-route-returnUrl="@Model.Input.ReturnUrl">
-                                Already registered? Login here
+                                Уже зарегистрированы? Выполните вход!
                             </a>
                             
-                            <button class="btn btn-primary" name="Input.Button" value="register">Register</button>
-                            <button class="btn btn-secondary" name="Input.Button" value="cancel">Cancel</button>
+                            <button class="btn btn-primary" name="Input.Button" value="register">Зарегистрироваться</button>
+                            <button class="btn btn-secondary" name="Input.Button" value="cancel">Назад</button>
                         </form>
                 </div>
 
                 @if(Model.RegisterSuccess)
                 {
                     <div class="alert alert-success mt-2">
-                        <strong>Successfully registered</strong> - You can now login
+                        <strong>Успешная регистрация</strong> - Вы можете войти под своим логином!
                     </div>
                 }
             </div>

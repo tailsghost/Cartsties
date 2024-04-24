@@ -17,7 +17,7 @@ export default function AppPagination({currentPage, pageCount, pageChange}: Prop
         totalPages={pageCount}
         layout="pagination"
         showIcons
-        className="text-blue-500 mb-5 justify-center"
+        className="text-blue-500 mb-4 justify-center rounded-lg"
         previousLabel="Назад"
         nextLabel="Вперед"
         />
