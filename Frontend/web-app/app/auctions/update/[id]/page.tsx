@@ -1,7 +1,16 @@
+import Heading from '@/app/components/Heading'
 import React from 'react'
+import AuctionForm from '../../AuctionForm'
+import { getDetailedValidData } from '@/app/actions/auctionActions'
 
-export default function Details({params}: {params: {id: string}}) {
+export default async function Details({params}: {params: {id: string}}) {
+
+  const data = await getDetailedValidData(params.id);
+
   return (
-    <div>Обновления для {params.id}</div>
+    <div className='mx-auto max-w-[75%] shadow-lg p-10 bg-white rounded-lg'>
+      <Heading title='Обновите ваш аукцион' subtitle='Пожалуйста, обновите данные вашей машины!'/>
+      <AuctionForm auction={data}/>
+    </div>
   )
 }
