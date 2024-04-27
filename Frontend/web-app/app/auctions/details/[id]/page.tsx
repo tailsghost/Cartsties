@@ -8,6 +8,8 @@ import { getCurrentUser } from "@/app/actions/authActions";
 import EditButton from "./EditButton";
 import DeleteButton from "./DeleteButton";
 
+export const dynamic = "force-dynamic";
+
 export default async function Details({ params }: { params: { id: string } }) {
   const data = await getDetailedValidData(params.id);
   const user = await getCurrentUser();

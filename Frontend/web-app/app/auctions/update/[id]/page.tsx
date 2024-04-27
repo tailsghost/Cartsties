@@ -3,6 +3,8 @@ import React from 'react'
 import AuctionForm from '../../AuctionForm'
 import { getDetailedValidData } from '@/app/actions/auctionActions'
 
+export const dynamic = "force-dynamic";
+
 export default async function Details({params}: {params: {id: string}}) {
 
   const data = await getDetailedValidData(params.id);

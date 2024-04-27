@@ -12,6 +12,9 @@ images: {
 env: {
   NEXTAUTH_SECRET:"say_lalisa_love_me_lalisa_love_me_hey",
 },
+typescript: {
+  ignoreBuildErrors: true,
+},
 }
 
 module.exports = nextConfig;

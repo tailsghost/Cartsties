@@ -7,7 +7,7 @@ async function get(url:string) {
     const requestOptions = {
         method: "GET",
         headers: await getHeaders(),
-        next: {revalidate: 1}
+        next: {revalidate: 1},
     }
 
     const response = await fetch(baseUrl + url, requestOptions);
