@@ -22,13 +22,13 @@ RUN dotnet restore Cartsties.sln
 
 # Copy the app folder over
 
-COPY SearchService SearchService
+COPY NotificationService NotificationService
 COPY Contracts Contracts
-WORKDIR /SearchService
+WORKDIR /NotificationService
 RUN dotnet publish -c Release -o /app/out
 
 # Build runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /
 COPY --from=build /app/out .
-ENTRYPOINT [ "dotnet", "SearchService.dll" ]
+ENTRYPOINT [ "dotnet", "NotificationService.dll" ]

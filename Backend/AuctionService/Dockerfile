@@ -7,11 +7,13 @@ EXPOSE 80
 
 COPY Cartsties.sln Cartsties.sln
 
-COPY /AuctionService/AuctionService.csproj /AuctionService/AuctionService.csproj
-COPY /SearchService/SearchService.csproj /SearchService/SearchService.csproj
-COPY /GatewayService/GatewayService.csproj /GatewayService/GatewayService.csproj
-COPY /Contracts/Contracts.csproj /Contracts/Contracts.csproj
-COPY /IdentityService/IdentityService.csproj /IdentityService/IdentityService.csproj
+COPY AuctionService/AuctionService.csproj AuctionService/AuctionService.csproj
+COPY SearchService/SearchService.csproj SearchService/SearchService.csproj
+COPY GatewayService/GatewayService.csproj GatewayService/GatewayService.csproj
+COPY Contracts/Contracts.csproj Contracts/Contracts.csproj
+COPY IdentityService/IdentityService.csproj IdentityService/IdentityService.csproj
+COPY BiddingService/BiddingService.csproj BiddingService/BiddingService.csproj
+COPY NotificationService/NotificationService.csproj NotificationService/NotificationService.csproj
 
 #Restore package desp
 

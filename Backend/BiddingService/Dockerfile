@@ -14,7 +14,6 @@ COPY Contracts/Contracts.csproj Contracts/Contracts.csproj
 COPY IdentityService/IdentityService.csproj IdentityService/IdentityService.csproj
 COPY BiddingService/BiddingService.csproj BiddingService/BiddingService.csproj
 COPY NotificationService/NotificationService.csproj NotificationService/NotificationService.csproj
-
 #Restore package desp
 
 RUN dotnet restore Cartsties.sln
@@ -22,13 +21,13 @@ RUN dotnet restore Cartsties.sln
 
 # Copy the app folder over
 
-COPY SearchService SearchService
+COPY BiddingService BiddingService
 COPY Contracts Contracts
-WORKDIR /SearchService
+WORKDIR /BiddingService
 RUN dotnet publish -c Release -o /app/out
 
 # Build runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /
 COPY --from=build /app/out .
-ENTRYPOINT [ "dotnet", "SearchService.dll" ]
+ENTRYPOINT [ "dotnet", "BiddingService.dll" ]
