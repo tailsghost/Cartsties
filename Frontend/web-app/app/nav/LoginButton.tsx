@@ -8,7 +8,7 @@ import { customThemeButton } from '../customStyle/CustomThemeButton';
 export default function LoginButton() {
   return (
     <Flowbite theme={{ theme: customThemeButton }}>
-    <Button outline onClick={() => signIn("id-server", {callbackUrl: "/"})}>Вход в систему</Button>
+    <Button outline onClick={() => signIn("id-server", {callbackUrl: "/"}, {prompt: "login"})}>Вход в систему</Button>
     </Flowbite>
   )
 }
