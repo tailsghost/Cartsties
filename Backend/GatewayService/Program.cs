@@ -25,6 +25,7 @@ builder.Services.AddCors(option =>
         .AllowCredentials()
         .WithOrigins(builder.Configuration["ClientApp"]);
     });
+    Console.WriteLine(builder.Configuration["ClientApp"]);
 });
 
 var app = builder.Build();

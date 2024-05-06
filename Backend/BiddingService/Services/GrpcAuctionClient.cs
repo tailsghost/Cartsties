@@ -1,6 +1,7 @@
 ﻿using AuctionService;
 using BiddingService.Models;
 using Grpc.Net.Client;
+using System.Globalization;
 
 namespace BiddingService.Services;
 
@@ -25,10 +26,11 @@ public class GrpcAuctionClient
         try
         {
             var reply = client.GetAuction(request);
+            CultureInfo provider = CultureInfo.InvariantCulture;
             var auction = new Auction
             {
                 ID = reply.Auction.Id,
-                AuctionEnd = DateTime.Parse(reply.Auction.AuctionEnd),
+                AuctionEnd = DateTime.ParseExact("05/15/2024 20:28:43", "MM/dd/yyyy HH:mm:ss", provider),
                 Seller = reply.Auction.Seller,
                 ReservePrice = reply.Auction.ReservePrice,
             };

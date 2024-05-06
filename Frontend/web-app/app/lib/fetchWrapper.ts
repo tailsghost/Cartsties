@@ -1,6 +1,6 @@
 import { getTokenWorkaround } from "@/app/actions/authActions";
 
-const baseUrl = "http://localhost:6001/"
+const baseUrl = process.env.API_URL;
 
 
 async function get(url:string) {
@@ -10,7 +10,11 @@ async function get(url:string) {
         next: {revalidate: 1},
     }
 
+    console.log(baseUrl + url)
+
     const response = await fetch(baseUrl + url, requestOptions);
+
+    
 
     return await handleResponse(response)
 }
@@ -23,6 +27,8 @@ async function post(url:string, body: {}) {
         body: JSON.stringify(body),
     }
 
+    console.log(baseUrl + url)
+
     const response = await fetch(baseUrl + url, requestOptions);
     return await handleResponse(response);
 }
@@ -34,6 +40,8 @@ async function put(url:string, body: {}) {
         body: JSON.stringify(body),
     }
 
+    console.log(baseUrl + url)
+
     const response = await fetch(baseUrl + url, requestOptions);
     return await handleResponse(response);
 }
@@ -43,6 +51,8 @@ async function del(url:string) {
         method: "DELETE",
         headers: await getHeaders(),
     }
+
+    console.log(baseUrl + url)
 
     const response = await fetch(baseUrl + url, requestOptions);
     return await handleResponse(response);

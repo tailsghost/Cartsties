@@ -5,25 +5,25 @@ EXPOSE 80
 # copy all .csproj files and restore as distinct layers. Use of the same COPY command
 # for every dockerfile in the project to take advantage of docker caching
 
-COPY Cartsties.sln Cartsties.sln
+COPY Backend/Cartsties.sln Backend/Cartsties.sln
 
-COPY AuctionService/AuctionService.csproj AuctionService/AuctionService.csproj
-COPY SearchService/SearchService.csproj SearchService/SearchService.csproj
-COPY GatewayService/GatewayService.csproj GatewayService/GatewayService.csproj
-COPY Contracts/Contracts.csproj Contracts/Contracts.csproj
-COPY IdentityService/IdentityService.csproj IdentityService/IdentityService.csproj
-COPY BiddingService/BiddingService.csproj BiddingService/BiddingService.csproj
-COPY NotificationService/NotificationService.csproj NotificationService/NotificationService.csproj
+COPY Backend/AuctionService/AuctionService.csproj Backend/AuctionService/AuctionService.csproj
+COPY Backend/SearchService/SearchService.csproj Backend/SearchService/SearchService.csproj
+COPY Backend/GatewayService/GatewayService.csproj Backend/GatewayService/GatewayService.csproj
+COPY Backend/Contracts/Contracts.csproj Backend/Contracts/Contracts.csproj
+COPY Backend/IdentityService/IdentityService.csproj Backend/IdentityService/IdentityService.csproj
+COPY Backend/BiddingService/BiddingService.csproj Backend/BiddingService/BiddingService.csproj
+COPY Backend/NotificationService/NotificationService.csproj Backend/NotificationService/NotificationService.csproj
 
 #Restore package desp
 
-RUN dotnet restore Cartsties.sln
+RUN dotnet restore Backend/Cartsties.sln
 
 
 # Copy the app folder over
 
-COPY IdentityService IdentityService
-WORKDIR /IdentityService
+COPY Backend/IdentityService Backend/IdentityService
+WORKDIR Backend/IdentityService
 RUN dotnet publish -c Release -o /app/out
 
 # Build runtime image
