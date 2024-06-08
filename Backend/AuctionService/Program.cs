@@ -53,6 +53,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         option.TokenValidationParameters.NameClaimType = "username";
     });
 
+
+builder.Services.AddScoped<IAuctionRepository, AuctionRepository>();
+
 builder.Services.AddGrpc();
 
 var app = builder.Build();
@@ -64,11 +67,15 @@ app.MapControllers();
 app.MapGrpcService<GrpcAuctionSerivce>();
 
 
+try
+{
     DbInitializer.InitDb(app);
-
-//catch (Exception e)
-//{
-//    Console.WriteLine(e);
-//}
+}
+catch (Exception e)
+{
+    Console.WriteLine(e.Message);
+}
 
 app.Run();
+
+public partial class Program { }

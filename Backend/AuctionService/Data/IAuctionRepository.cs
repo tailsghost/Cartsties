@@ -1,0 +1,20 @@
+﻿using AuctionService.Dtos;
+using AuctionService.Entities;
+
+namespace AuctionService.Data
+{
+    public interface IAuctionRepository
+    {
+        Task<List<AuctionDto>> GetAuctionAsync(string date);
+
+        Task<AuctionDto> GetAuctionBuIdAsync(Guid id);
+
+        Task<Auction> GetAuctionEntityById (Guid id);
+
+        void AddAuction (Auction auction);
+
+        void RemoveAuction(Auction auction);
+
+        Task<bool> SaveChangesAsync();
+    }
+}
